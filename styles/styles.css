@@ -1,0 +1,73 @@
+html {
+	box-sizing: border-box;
+}
+
+*: {
+	box-sizing: inherit;
+}
+
+p {
+  display: inline-block;
+}
+
+div {
+  /* background-color: red; */
+  grid-area: time;
+  text-align: center;
+}
+
+#secondes, #minutes {
+	position: relative;
+}
+
+#time {
+	position: relative;
+	margin: auto;
+	overflow: hidden;
+}
+
+@media only screen and (min-width: 0px) {
+
+  body {
+    background-image: url("images/day.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+  	background-size: cover;
+  	background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "time";
+  }
+
+  #time {
+    color: #FFFFFF;
+    font-size: 70px;
+    font-weight: lighter;
+    line-height: 78vh;
+  }
+
+}
+
+@media only screen and (min-width: 601px) {
+
+  #time {
+    font-size: 100px;
+    line-height: 70vh;
+  }
+
+}
+
+@media only screen and (min-width: 1020px) {
+
+  #time {
+    font-size: 150px;
+    line-height: 56vh;
+  }
+
+}
+
+@media only screen and (min-width: 1620px) {
+
+}
