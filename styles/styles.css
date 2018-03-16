@@ -6,68 +6,110 @@ html {
 	box-sizing: inherit;
 }
 
-p {
-  display: inline-block;
+body {
+  background-image: url("images/day.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Orbitron', sans-serif;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "hello"
+    "time"
+    "date";
 }
 
-div {
-  /* background-color: red; */
-  grid-area: time;
-  text-align: center;
-}
-
-#secondes, #minutes {
-	position: relative;
+#hello {
+  color: #FFFFFF;
+  grid-area: hello;
+  text-align: left;
+  padding: 20px;
 }
 
 #time {
+  color: #FFFFFF;
+  grid-area: time;
 	position: relative;
 	margin: auto;
 	overflow: hidden;
 }
 
-@media only screen and (min-width: 0px) {
+#secondes, #minutes, #hours {
+	position: relative;
+}
 
-  body {
-    background-image: url("images/day.jpg");
-    background-repeat: no-repeat;
-    background-position: center center;
-  	background-size: cover;
-  	background-attachment: fixed;
-    font-family: 'Montserrat', sans-serif;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "time";
+p {
+  display: inline-block;
+}
+
+#date {
+  color: #FFFFFF;
+  grid-area: date;
+  text-align: left;
+  padding: 20px;
+}
+
+
+@media only screen and (min-width: 0px) { /* mobiel */
+
+  #hello {
+    font-size: 20px;
+    padding: 20px;
   }
 
   #time {
-    color: #FFFFFF;
-    font-size: 70px;
-    font-weight: lighter;
-    line-height: 78vh;
+    font-size: 50px;
+    line-height: 68vh;
+    left: calc(50% - 140px);
+  }
+
+  #date {
+    font-size: 15px;
+    padding: 20px;
   }
 
 }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 601px) { /* tablet */
+
+  #hello {
+    font-size: 25px;
+    padding: 20px;
+  }
 
   #time {
-    font-size: 100px;
-    line-height: 70vh;
+    font-size: 80px;
+    line-height: 59vh;
+    left: calc(50% - 220px);
+  }
+
+  #date {
+    font-size: 20px;
+    padding: 20px;
   }
 
 }
 
-@media only screen and (min-width: 1020px) {
+@media only screen and (min-width: 1020px) { /* laptop */
+
+  #hello {
+    font-size: 30px;
+  }
 
   #time {
-    font-size: 150px;
-    line-height: 56vh;
+    font-size: 120px;
+    line-height: 46vh;
+    left: calc(50% - 320px);
+  }
+
+  #date {
+    font-size: 25px;
   }
 
 }
 
-@media only screen and (min-width: 1620px) {
+@media only screen and (min-width: 1620px) { /* groot scherm */
 
 }

@@ -1,75 +1,70 @@
-// function startTime() {
-//     var today = new Date();
-//     var h = today.getHours();
-//     var m = today.getMinutes();
-//     var s = today.getSeconds();
-//     h = checkTime(h);
-//     m = checkTime(m);
-//     s = checkTime(s);
-//     document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
-//     var t = setTimeout(startTime, 500);
-// }
-//
-// function checkTime(i) {
-//     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-//     return i;
-// }
-
-// time
+// tijd
 
 function startTime() {
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
     var s = today.getSeconds();
-    h = checkTime(h);
-    m = checkTime(m);
-    s = checkTime(s);
-    document.getElementById('hours').innerHTML = h;
-    document.getElementById('minutes').innerHTML =  m;
-    document.getElementById('secondes').innerHTML = s;
-    var t = setTimeout(startTime, 500);
+
+    // verandering achtergrond op tijd + welkom bericht
+
+    //08-19 day
+    if (h > 7 && h < 20){
+      document.getElementsByTagName('body')[0].style.backgroundImage = "url('styles/images/day.jpg')";
+      document.getElementById('hello').innerHTML = 'Good Day, ITS';
+    }
+
+    //20-07 night
+    else if (h > 19 || h < 8){
+      document.getElementsByTagName('body')[0].style.backgroundImage = "url('styles/images/night.jpg')";
+      document.getElementById('hello').innerHTML = 'Good Night, ITS';
+    }
+
+    document.getElementById('hours').innerHTML = checkTime(h);
+    document.getElementById('minutes').innerHTML = checkTime(m);
+    document.getElementById('secondes').innerHTML = checkTime(s);
+
+
+    // tijd animatie
+
+    var tl1 = new TimelineMax();
+    tl1.from('#secondes', 0.7, { top: -50, ease: Bounce.easeOut})
+
+    if (s == 0) {
+      var tl2 = new TimelineMax();
+      tl2.from('#minutes', 0.7, { top: -50, ease: Bounce.easeOut})
+    }
+
+    if (m == 0) {
+      var tl3 = new TimelineMax();
+      tl3.from('#hours', 0.7, { top: -50, ease: Bounce.easeOut})
+    }
+
+    var t = setTimeout(startTime, 1000);
 }
 
+
+// voegt een 0 toe voor de nummers onder de 10
+
 function checkTime(i) {
-    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    if (i < 10) {i = "0" + i};
     return i;
 }
 
-// background change
 
-h = 9;
+// datum / maand / jaar
 
-//08-19 day
-if (h > 7 && h < 20){
-  document.getElementsByTagName('body')[0].style.backgroundImage = "url('styles/images/day.jpg')";
-  console.log('day');
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //Januari is 1!
+var yyyy = today.getFullYear();
+
+if (dd<10){
+    dd='0'+dd;
+}
+if (mm<10){
+    mm='0'+mm;
 }
 
-//20-07 night
-else if (h > 19 || h < 8){
-  document.getElementsByTagName('body')[0].style.backgroundImage = "url('styles/images/night.jpg')";
-  console.log('night');
-}
-
-// time animations
-
-var tl1 = new TimelineMax({repeat: -1});
-
-tl1.to('#dots', 1, {color: '#FFFFFF'}, '+1')
-   .to('#dots', 1, {color: '#000000'}, '+1');
-
-
-var tl2 = new TimelineMax({repeat : -1});
-
-tl2.call(startTime)
-  .from('#secondes', 0.7, { top: -50, ease: Bounce.easeOut})
-  .to('#secondes', 0.3, { opacity: 0});
-
-if (s == 0) {
-  var tl3 = new TimelineMax({repeat : -1});
-
-  tl3.call(startTime)
-    .from('#minutes', 0.7, { top: -50, ease: Bounce.easeOut}, '+60')
-    .to('#minutes', 0.3, { opacity: 0});
-}
+var today = dd+' '+'/'+' '+mm+' '+'/'+' '+yyyy;
+document.getElementById('date').innerHTML = today;
