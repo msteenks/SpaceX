@@ -112,4 +112,18 @@ p {
 
 @media only screen and (min-width: 1620px) { /* groot scherm */
 
+  #hello {
+    font-size: 30px;
+  }
+
+  #time {
+    font-size: 140px;
+    line-height: 55vh;
+    left: calc(50% - 370px);
+  }
+
+  #date {
+    font-size: 25px;
+  }
+
 }
