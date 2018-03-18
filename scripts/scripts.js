@@ -35,7 +35,7 @@ function startTime() {
       tl2.from('#minutes', 0.7, { top: -50, ease: Bounce.easeOut})
     }
 
-    if (m == 0) {
+    if (m == 0 && s == 0) {
       var tl3 = new TimelineMax();
       tl3.from('#hours', 0.7, { top: -50, ease: Bounce.easeOut})
     }
