@@ -8,6 +8,8 @@ function startTime() {
 
     // verandering achtergrond op tijd + welkom bericht
 
+    // var h = 20;
+
     //08-19 day
     if (h > 7 && h < 20){
       document.getElementsByTagName('body')[0].style.backgroundImage = "url('styles/images/day.jpg')";
